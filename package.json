@@ -13,13 +13,16 @@
     "publish:dev": "source .env && npm run build:dev && wrangler publish",
     "publish:prod": "source .env && npm run build:prod && wrangler publish --env=production",
     "serverless:deploy": "source .env && serverless deploy",
-    "serverless:remove": "source .env && serverless remove"
+    "serverless:remove": "source .env && serverless remove",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "query-string": "^6.10.1",
-    "ts-loader": "^6.2.2"
+    "ts-loader": "^6.2.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^1.0.7",
@@ -31,5 +34,6 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "snyk": true
 }
